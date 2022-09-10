@@ -1,0 +1,30 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="locationmodalService.modal" (click)="cerrarModal()">
+  <div class="modal" tabindex="-1" style="display:block;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{location.name}}</h5>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <ul *ngIf="location" class="list-group text-dark mb-3">
+                  <li class="list-group-item">Estado: {{ location.type }}</li>
+                  <li class="list-group-item">Especie: {{ location.dimension }}</li>
+                  <li class="list-group-item">Género: {{ location.residents.length  }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

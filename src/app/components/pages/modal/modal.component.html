@@ -1,0 +1,35 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal" (click)="cerrarModal()">
+  <div class="modal" tabindex="-1" style="display:block;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{character.name}}</h5>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <ul *ngIf="character" class="list-group text-dark mb-3">
+                  <li class="list-group-item">Estado: {{ character.status }}</li>
+                  <li class="list-group-item">Especie: {{ character.species }}</li>
+                  <li class="list-group-item">Género: {{ character.gender }}</li>
+                  <li class="list-group-item">Origen: {{ character.origin.name }}</li>
+                  <li class="list-group-item">Locación: {{ character.location.name }}</li>
+                </ul>
+              </div>
+              <div class="col-sm">
+                <img *ngIf="character?.image" class="img-thumbnail rounded" [src]=character.image alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

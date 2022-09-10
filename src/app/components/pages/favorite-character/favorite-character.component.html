@@ -1,0 +1,50 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <div *ngIf="loading" class="windows8">
+      <div class="wBall" id="wBall_1">
+        <div class="wInnerBall"></div>
+      </div>
+      <div class="wBall" id="wBall_2">
+        <div class="wInnerBall"></div>
+      </div>
+      <div class="wBall" id="wBall_3">
+        <div class="wInnerBall"></div>
+      </div>
+      <div class="wBall" id="wBall_4">
+        <div class="wInnerBall"></div>
+      </div>
+      <div class="wBall" id="wBall_5">
+        <div class="wInnerBall"></div>
+      </div>
+    </div>
+
+    <div *ngFor="let character of favorite || null || undefined" class="card mb-2 col-xs-12 col-sm-4 col-md-3">
+
+        <figure>
+          <img [src]=character.image class="card-img-top" alt="...">
+        </figure>
+
+
+      <div class="card-body">
+        <figure class="card__favorite">
+          <img (click)="toggleFavorite(character)" rel="preload" as="image" width="30" height="30" src="/assets/imgs/{{getIcon()}}"
+            [alt]="character.name" />
+        </figure>
+        <h5 class="card-title"><b>{{ character.name }}</b></h5>
+        <ul class="card__list">
+          <li>
+            <label class="table__label"><b>Estado:</b></label>{{character.status}}
+          </li>
+          <li>
+            <label class="table__label"><b>Especie:</b></label>{{character.species}}
+          </li>
+          <li>
+            <label class="table__label"><b>Género:</b></label>{{character.gender}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
