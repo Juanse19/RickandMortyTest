@@ -21,12 +21,12 @@
 
     <div class="input-group">
       <div class="form-outline">
-        <app-search (search)="handleSearch($any($event))"></app-search>
+        <app-search (search)="setUrlSearchPersonajes($any($event))"></app-search>
         <br>
       </div>
     </div>
 
-    <div *ngFor="let character of characters | search:filtro_valor " class="card mb-2 col-xs-12 col-sm-4 col-md-3">
+    <div *ngFor="let character of characters" class="card mb-2 col-xs-12 col-sm-4 col-md-3">
       <a  (click)="abrirModal(character)">
         <figure>
           <img [src]=character.image class="card-img-top" alt="...">

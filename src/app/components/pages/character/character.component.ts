@@ -26,7 +26,6 @@ export class CharacterComponent implements OnInit {
   public infoPagination: any;
   public loading = true;
   public alive: boolean = true;
-  public filtro_valor = '';
 
   constructor(private characterService: CharacterService,
               private activatedRouter: ActivatedRoute,
@@ -36,10 +35,6 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCharacter();
-  }
-
-  handleSearch(value: string) {
-    this.filtro_valor = value
   }
 
   getIcon(): string {
@@ -58,6 +53,15 @@ export class CharacterComponent implements OnInit {
         );
     });
 
+  }
+
+  setUrlSearchPersonajes( termino: string ){
+    this.characterService.getFilterCapitulos( termino )
+      .subscribe( ( data: any ) => {
+        this.characters = data.results;
+        console.log('Character', this.characters);
+
+      });
   }
 
   public getLocation(id: any){

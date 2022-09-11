@@ -23,6 +23,10 @@ export class CharacterService {
     return this.httpClient.get<Character[]>(`${this.urlApi}/character/?page=${page}`);
   }
 
+  getFilterCapitulos( termino:string ){
+    return this.httpClient.get<Character[]>(`${this.urlApi}/character/?name=${ termino }`);
+  }
+
   public contadorPage(): void {
     if (this.contador <= 34) {
       this.contador++;
